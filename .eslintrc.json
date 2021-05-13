@@ -1,17 +1,18 @@
 {
   "extends": [
     "eslint:recommended",
-    "prettier",
-    "prettier/react",
     "plugin:import/errors",
     "plugin:react/recommended",
-    "plugin:jsx-a11y/recommended"
+    "plugin:jsx-a11y/recommended",
+    "plugin:react-hooks/recommended",
+    "prettier",
+    "prettier/react"
   ],
   "rules": {
     "react/prop-types": 0,
     "react/react-in-jsx-scope": 0
   },
-  "plugins": ["react", "jsx-a11y", "import"],
+  "plugins": ["react", "import", "jsx-a11y"],
   "parserOptions": {
     "ecmaVersion": 2021,
     "sourceType": "module",
@@ -21,8 +22,8 @@
   },
   "env": {
     "es6": true,
-    "node": true,
-    "browser": true
+    "browser": true,
+    "node": true
   },
   "settings": {
     "react": {
