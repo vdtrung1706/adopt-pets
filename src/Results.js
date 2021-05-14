@@ -1,12 +1,12 @@
-import Pet from './Pet';
+import Pet from "./Pet";
 
 const Results = ({ pets }) => {
   return (
-    <div className="search grid gap-4 grid-cols-2 sm:grid-cols-2 lg:grid-cols-3">
+    <div className="search">
       {!pets.length ? (
         <h1>No Pets Found</h1>
       ) : (
-        pets.map(pet => {
+        pets.map((pet) => {
           return (
             <Pet
               animal={pet.animal}

@@ -1,9 +1,9 @@
-import { Component } from 'react';
-import { withRouter } from 'react-router-dom';
-import Carousel from './Carousel';
-import ErrorBoundary from './ErrorBoundary';
-import ThemeContext from './ThemeContext';
-import Modal from './Modal';
+import { Component } from "react";
+import { withRouter } from "react-router-dom";
+import ThemeContext from "./ThemeContext";
+import Carousel from "./Carousel";
+import ErrorBoundary from "./ErrorBoundary";
+import Modal from "./Modal";
 
 class Details extends Component {
   state = { loading: true, showModal: false };
@@ -17,15 +17,24 @@ class Details extends Component {
   }
 
   toggleModal = () => this.setState({ showModal: !this.state.showModal });
-  adopt = () => (window.location = 'http://bit.ly/pet-adopt');
+
+  adopt = () => (window.location = "http://bit.ly/pet-adopt");
 
   render() {
     if (this.state.loading) {
       return <h2>loading … </h2>;
     }
 
-    const { animal, breed, city, state, description, name, images, showModal } =
-      this.state;
+    const {
+      animal,
+      breed,
+      city,
+      state,
+      description,
+      name,
+      images,
+      showModal,
+    } = this.state;
 
     return (
       <div className="details">
