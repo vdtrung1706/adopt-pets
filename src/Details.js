@@ -1,6 +1,6 @@
 import { Component } from "react";
 import { withRouter } from "react-router-dom";
-import ThemeContext from "./ThemeContext";
+import { connect } from "react-redux";
 import Carousel from "./Carousel";
 import ErrorBoundary from "./ErrorBoundary";
 import Modal from "./Modal";
@@ -42,16 +42,12 @@ class Details extends Component {
         <div>
           <h1>{name}</h1>
           <h2>{`${animal} — ${breed} — ${city}, ${state}`}</h2>
-          <ThemeContext.Consumer>
-            {([theme]) => (
-              <button
-                onClick={this.toggleModal}
-                style={{ backgroundColor: theme }}
-              >
-                Adopt {name}
-              </button>
-            )}
-          </ThemeContext.Consumer>
+          <button
+            onClick={this.toggleModal}
+            style={{ backgroundColor: this.props.theme }}
+          >
+            Adopt {name}
+          </button>
           <p>{description}</p>
           {showModal ? (
             <Modal>
@@ -70,7 +66,11 @@ class Details extends Component {
   }
 }
 
-const DetailsWithRouter = withRouter(Details);
+const mapStateToProps = ({ theme }) => ({ theme });
+
+const ReduxWrappedDetails = connect(mapStateToProps)(Details);
+
+const DetailsWithRouter = withRouter(ReduxWrappedDetails);
 
 export default function DetailsErrorBoundary(props) {
   return (
