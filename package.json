@@ -38,5 +38,6 @@
   },
   "browserslist": [
     "last 2 Chrome versions"
-  ]
+  ],
+  "typecheck": "tsc --noEmit"
 }
